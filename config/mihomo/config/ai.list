@@ -1,6 +1,5 @@
 # AI 平台合并规则集（classical 格式）
 # 来源: meta-rules-dat(openai, google-gemini, xai, groq, anthropic, perplexity, poe, github-copilot, cursor, jetbrains-ai, windsurf, trae, manus) + ACL4SSR AI.list
-# 生成时间: 2026-08-12
 # 共 140 条
 DOMAIN,ai.google.dev
 DOMAIN,aistudio.google.com
