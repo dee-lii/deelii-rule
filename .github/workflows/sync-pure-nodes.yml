@@ -1,0 +1,32 @@
+name: Sync pure-nodes.js
+
+on:
+  schedule:
+    # 每天 UTC 04:30（北京时间 12:30），避开 ai.list 的 04:00
+    - cron: "30 4 * * *"
+  workflow_dispatch: # 手动触发
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch upstream and apply local patches
+        run: python3 scripts/apply-pure-nodes-patch.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet -- scripts/pure-nodes.js; then
+            git add scripts/pure-nodes.js
+            git commit -m "chore: sync pure-nodes.js from upstream [skip ci]"
+            git push origin HEAD:main
+            echo "已同步上游并应用补丁"
+          else
+            echo "上游无变化，跳过"
+          fi
