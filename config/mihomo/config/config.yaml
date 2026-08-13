@@ -1,11 +1,10 @@
-# 必读！！！
-# 此配置不防DNS泄露，想使用防泄漏专业版本请使用同目录下另一个名字为mihomo的版本
+# 必读：已启用 DNS 防泄漏（fake-ip 生效 + fallback 双通道），不要往 fake-ip-filter 里加 "*"
 # 机场订阅
 proxy-providers:
   Airport1:
     url: "订阅url"
     type: http
-    interval: 0
+    interval: 86400
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
@@ -88,17 +87,16 @@ dns:
     ipcidr:
       - 240.0.0.0/4
  
-# 出站策略，根据自己情况调整每个策略里分组排序，增删都可以，比如把美国自动放到第一个，比如删除香港故转，注意别漏掉表情逗号等。
+# 出站策略：公共列表在下方 x-countries 锚点统一维护
 # 如果相应分组没有筛选到对应的国家，请根据自己节点名字调整筛选关键字。
-# 没有再使用锚点和icon图标，是考虑很多新手修改难度，这样新手修改某个分组更容易些。
 # 公共节点列表锚点：新增国家分组后在这里补一项即可
 x-countries: &countries [♻️ 自动选择, 🇭🇰 香港节点, 🇯🇵 日本节点, 🇸🇬 狮城节点, 🇺🇲 美国节点, 🌐 全部节点, 直连]
 
 proxy-groups:
   - {name: 🚀 默认代理, type: select, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png", proxies: *countries}
+  - {name: 🤖 AI, type: select, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/AI.png", proxies: *countries}
   - {name: 📹 YouTube, type: select, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png", proxies: *countries}
   - {name: 🍀 Google, type: select, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google.png", proxies: *countries}
-  - {name: 🤖 AI, type: select, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/AI.png", proxies: *countries}
   - {name: 👨🏿‍💻 GitHub, type: select, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png", proxies: *countries}
   - {name: 🐬 OneDrive, type: select, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/OneDrive.png", proxies: *countries}
   - {name: 🪟 Microsoft, type: select, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png", proxies: *countries}
@@ -160,7 +158,6 @@ rule-providers:
   onedrive_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/onedrive.mrs"}
   microsoft_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"}
   apple_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"}
-  speedtest_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/ookla-speedtest.mrs"}
   tiktok_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"}
   geolocation-!cn: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"}
   cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
