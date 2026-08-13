@@ -28,7 +28,7 @@ const DEFAULT_CONFIG = {
     // ---------------------------------------------------------------------
     // 📝 二、命名模板与展示风格
     // ---------------------------------------------------------------------
-    enableStandardRename: true,   // 标准化重命名: 关闭则保留节点原名(防吞词)
+    enableStandardRename: false,  // 标准化重命名: 关闭则保留节点原名，末尾追加 IP 识别的国家/地区
     
     // 🖨️ 节点命名模板变量说明 (自由组合，无数据时会自动清理多余空格与符号):
     // {prefix}   -> 自定义前缀 (如: "我的机场-")
@@ -1570,7 +1570,10 @@ function operator(proxies, targetPlatform, userConfig = {}) {
                 }
                 finalName = finalName.trim();
                 } else {
-                    finalName = `${myPrefix}${item.rawName}`;
+                    // 保留原名，末尾追加 IP 识别的国家/地区
+                    finalName = `${myPrefix}${item.rawName} ${regionInfo.icon}${regionInfo.name}`
+                        .replace(/\s{2,}/g, " ")
+                        .trim();
                 }
 
                 const regionKey = regionInfo.name;
