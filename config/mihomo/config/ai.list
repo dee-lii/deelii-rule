@@ -1,6 +1,6 @@
 # AI 平台合并规则集（classical 格式）
 # 来源: meta-rules-dat(openai, google-gemini, xai, groq, anthropic, perplexity, poe, github-copilot, cursor, jetbrains-ai, windsurf, trae, manus) + ACL4SSR AI.list
-# 共 140 条
+# 共 142 条
 DOMAIN,ai.google.dev
 DOMAIN,aistudio.google.com
 DOMAIN,alkalicore-pa.clients6.google.com
@@ -79,6 +79,7 @@ DOMAIN-SUFFIX,doudou.com
 DOMAIN-SUFFIX,events.statsigapi.net
 DOMAIN-SUFFIX,featuregates.org
 DOMAIN-SUFFIX,flow.google
+DOMAIN-SUFFIX,flow.google.com
 DOMAIN-SUFFIX,geller-pa.googleapis.com
 DOMAIN-SUFFIX,gemini.google
 DOMAIN-SUFFIX,gemini.google.com
@@ -112,6 +113,7 @@ DOMAIN-SUFFIX,mchost.guru
 DOMAIN-SUFFIX,mcprev.cn
 DOMAIN-SUFFIX,meta.ai
 DOMAIN-SUFFIX,mistral.ai
+DOMAIN-SUFFIX,notebook.google
 DOMAIN-SUFFIX,notebook.google.com
 DOMAIN-SUFFIX,notebooklm.google
 DOMAIN-SUFFIX,notebooklm.google.com
