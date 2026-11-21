@@ -16,7 +16,7 @@ import io
 import sys
 import urllib.request
 
-UPSTREAM_URL = "https://raw.githubusercontent.com/XiaoM-OVO/Mihomo-Toolkit/main/src/pure-nodes.js"
+UPSTREAM_URL = "https://raw.githubusercontent.com/XiaoM-OVO/Mihomo-Toolkit/main/standalone/src/pure-nodes.js"
 DEFAULT_OUT = "scripts/pure-nodes.js"
 
 # (旧文本, 新文本, 描述)
