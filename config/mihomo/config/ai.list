@@ -1,6 +1,6 @@
 # AI 平台合并规则集（classical 格式）
 # 来源: meta-rules-dat(openai, google-gemini, xai, groq, anthropic, perplexity, poe, github-copilot, cursor, jetbrains-ai, windsurf, trae, manus) + ACL4SSR AI.list
-# 共 166 条
+# 共 167 条
 DOMAIN,ai.google.dev
 DOMAIN,aistudio.google.com
 DOMAIN,alkalicore-pa.clients6.google.com
@@ -49,6 +49,7 @@ DOMAIN,servd-anthropic-website.b-cdn.net
 DOMAIN,sydney.bing.com
 DOMAIN,webchannel-alkalimakersuite-pa.clients6.google.com
 DOMAIN-KEYWORD,anthropic
+DOMAIN-KEYWORD,antigravity
 DOMAIN-KEYWORD,claude
 DOMAIN-KEYWORD,openai
 DOMAIN-SUFFIX,ai.azure.com
